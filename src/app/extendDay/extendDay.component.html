@@ -1,0 +1,6 @@
+<div class="op-calendar-new-right" id="op-calendar-new-right" >
+    <p>{{data.month-(-1)}}月{{day.date_str}}日</p>
+    <p><label><input type="checkbox" [(ngModel)]="day.isWork" (click)="clickWork()"> 加班否</label></p>
+    <p><input class="mark" [(ngModel)]="day.mark" placeholder="备注"/></p>
+    <button (click)="download()">下载</button>
+</div>

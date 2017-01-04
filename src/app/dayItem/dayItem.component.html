@@ -1,0 +1,13 @@
+<div class="op-calendar-new-relative">
+	<a href="javascript:;"
+    [class.op-calendar-new-table-selected]="day === selected"
+    [class.op-calendar-new-table-weekend]="day.isHoliday"
+		class="op-calendar-new-table-other-month" date="">
+    <span  class="op-calendar-new-daynumber" *ngIf="day.date_str > 0">
+      {{day.date_str}}
+    </span>
+    <span class="op-calendar-new-table-ticket ">
+    </span>	
+    <span class="work" *ngIf="day.isWork"></span>
+  </a>
+</div>

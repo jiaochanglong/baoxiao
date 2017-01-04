@@ -1,0 +1,77 @@
+<h1>{{title}}</h1>
+    <!--<ul class="heroes">
+      <li *ngFor="let hero of heroes"
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </li>
+    </ul>
+    <div *ngIf="selectedHero">
+      <h2>{{selectedHero.name}} details!</h2>
+      <div><label>id: </label>{{selectedHero.id}}</div>
+      <div>
+        <label>name: </label>
+        <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+      </div>
+    </div>-->
+
+<div class="warp">
+
+    <div class="op-calendar-new-box">
+        <div class="op-calendar-new-left c-clearfix">
+            <div class="op-calendar-new-select-box">
+                <div class="select-box">
+                    <select [(ngModel)]="data.year" (change)="changeTime()">
+                        <option value ="2015">2015年</option>
+                        <option value ="2016">2016年</option>
+                        <option value="2017">2017年</option>
+                        <option value="2018">2018年</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                      <select [(ngModel)]="data.month" (change)="changeTime()">
+                        <option value ="0">1月</option>
+                        <option value ="1">2月</option>
+                        <option value ="2">3月</option>
+                        <option value ="3">4月</option>
+                        <option value ="4">5月</option>
+                        <option value ="5">6月</option>
+                        <option value ="6">7月</option>
+                        <option value ="7">8月</option>
+                        <option value ="8">9月</option>
+                        <option value ="9">10月</option>
+                        <option value ="10">11月</option>
+                        <option value ="11">12月</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <input class="mark" [(ngModel)]="data.name" placeholder="姓名"/>
+                </div>
+            </div>
+
+
+
+            <table class="op-calendar-new-table">
+            <tbody>
+                <tr>
+                <th class="op-calendar-new-table-weekend">日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th class="op-calendar-new-table-weekend">六</th>
+                </tr>
+                <tr *ngFor="let tr_day of data.day">
+                <td  *ngFor="let td_day of tr_day" (click)="onSelect(td_day)">
+                    <app-dayItem [selected] = 'selected_day'  [day] = 'td_day' ></app-dayItem>
+                    
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <app-extendDay [day] = 'selected_day' [data] = 'data'></app-extendDay>
+
+    </div>
+</div>

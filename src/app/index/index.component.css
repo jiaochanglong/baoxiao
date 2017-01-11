@@ -5,19 +5,11 @@
 }
 .select-box {
     float: left;
-    margin: 0 20px;
+    margin-right:10px;
 }
-
-
-
-
-
-
-
-
-
-
-
+.select-box.right{
+    float:right;
+}
 
 .op-calendar-new-box {
     border: 2px solid #57abff;
@@ -157,36 +149,6 @@
     height: 45px
 }
 
-.op-calendar-new-table td a {
-    display: block;
-    width: 48px;
-    border-right: 1px solid #fff;
-    height: 33px;
-    padding: 11px 3px 10px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 1;
-    white-space: nowrap;
-    overflow: hidden
-}
-
-.op-calendar-new-table td a * {
-    cursor: pointer
-}
-
-.op-calendar-new-table-six td a {
-    padding: 6px 3px
-}
-
-.op-calendar-new-table td .op-calendar-new-table-border,.op-calendar-new-table td .op-calendar-new-table-selected,.op-calendar-new-table td a:hover {
-    padding: 8px 0 7px;
-    width: 48px;
-    border: 3px solid #fb0
-}
-
-.op-calendar-new-table-six td .op-calendar-new-table-border,.op-calendar-new-table-six td .op-calendar-new-table-selected,.op-calendar-new-table-six td a:hover {
-    padding: 3px 0
-}
 
 .op-calendar-new-daynumber {
     display: block;

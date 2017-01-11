@@ -11,4 +11,5 @@ export class DayItemComponent {
 
   @Input()selected;
   @Input()day;
+  @Input()daylength;
 }

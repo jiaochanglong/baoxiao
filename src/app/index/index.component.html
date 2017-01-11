@@ -44,13 +44,10 @@
                         <option value ="11">12月</option>
                     </select>
                 </div>
-                <div class="select-box">
+                <div class="select-box right">
                     <input class="mark" [(ngModel)]="data.name" placeholder="姓名"/>
                 </div>
             </div>
-
-
-
             <table class="op-calendar-new-table">
             <tbody>
                 <tr>
@@ -62,9 +59,9 @@
                 <th>五</th>
                 <th class="op-calendar-new-table-weekend">六</th>
                 </tr>
-                <tr *ngFor="let tr_day of data.day">
+                <tr *ngFor="let tr_day of data.day" [class.op-calendar-new-table-six]="data.tr_str===6">
                 <td  *ngFor="let td_day of tr_day" (click)="onSelect(td_day)">
-                    <app-dayItem [selected] = 'selected_day'  [day] = 'td_day' ></app-dayItem>
+                    <app-dayItem [selected] = 'selected_day'  [day] = 'td_day' [daylength] = 'data.tr_str'></app-dayItem>
                     
                 </td>
                 </tr>

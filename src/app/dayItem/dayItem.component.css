@@ -9,24 +9,6 @@
     bottom: 4px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .op-calendar-new-box {
     border: 2px solid #57abff;
     border-right: 0;
@@ -182,13 +164,12 @@ a {
     white-space: nowrap;
     overflow: hidden
 }
+a.op-calendar-new-table-six-a{
+    padding: 6px 3px
+}
 
 a * {
     cursor: pointer
-}
-
-.op-calendar-new-table-six td a {
-    padding: 6px 3px
 }
 
 .op-calendar-new-table-border,.op-calendar-new-table-selected,a:hover {
@@ -197,7 +178,7 @@ a * {
     border: 3px solid #fb0
 }
 
-.op-calendar-new-table-six td .op-calendar-new-table-border,.op-calendar-new-table-six td .op-calendar-new-table-selected,.op-calendar-new-table-six td a:hover {
+.op-calendar-new-table-border.op-calendar-new-table-six-a,.op-calendar-new-table-selected.op-calendar-new-table-six-a,a.op-calendar-new-table-six-a:hover {
     padding: 3px 0
 }
 

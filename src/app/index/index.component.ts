@@ -19,7 +19,7 @@ export class IndexComponent implements OnInit {
   getList(): void {
     this.data = this.getListService.getList();
     this.selected_day = this.data.today;
-    
+    console.log(this.data);
   }
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class IndexComponent implements OnInit {
   changeTime (){
     let that = this;
     setTimeout(function(){
-    debugger
+    // debugger
       that.data = that.getListService.changeTime(that.data);
     },30)
   }

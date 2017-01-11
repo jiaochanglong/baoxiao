@@ -2,6 +2,7 @@
 	<a href="javascript:;"
     [class.op-calendar-new-table-selected]="day === selected"
     [class.op-calendar-new-table-weekend]="day.isHoliday"
+    [class.op-calendar-new-table-six-a]="daylength === 6"
 		class="op-calendar-new-table-other-month" date="">
     <span  class="op-calendar-new-daynumber" *ngIf="day.date_str > 0">
       {{day.date_str}}

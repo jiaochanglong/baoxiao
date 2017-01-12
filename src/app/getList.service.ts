@@ -6,11 +6,32 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class GetListService {
 
-private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
- constructor(private http: Http) { }
+    private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
+    constructor(private http: Http) { }
 
+    hlist = [];
     getList() {
         return this.setDay();
+    }
+
+    getHolidayList() {
+        let _this = this;
+        let ynow = new Date().getFullYear();
+        this.http.post('http://127.0.0.1:7000/changetime','reqData=' + ynow,{headers: this.headers})
+        .subscribe(
+            function(result){
+                result=result.json();
+                if(result){
+                    // console.log(result.data[0].holidaylist);
+                    let holidaylist = result.data[0].holiday;
+                    let hmonth , hday ;
+                    for (let i = 0; i < holidaylist.length; i++){
+                        _this.hlist.push(holidaylist[i]);
+                    }
+                    // _this.setDay();
+                }
+            }
+        );
     }
 
     changeTime(data) {
@@ -42,6 +63,10 @@ private headers = new Headers({'Content-Type': 'application/x-www-form-urlencode
             nstr.setFullYear(y);
             nstr.setMonth(m);
         }
+         else {
+            this.getHolidayList();
+        }
+        console.log(this.hlist);
         let ynow=nstr.getFullYear(); //年份
         let mnow=nstr.getMonth(); //月份
         let dnow=nstr.getDate(); //今日日期
@@ -55,29 +80,27 @@ private headers = new Headers({'Content-Type': 'application/x-www-form-urlencode
         let day = [];
         let today = {};
         let isHoliday;
-        function holidayList () {
-            this.http.post('http://127.0.0.1:7000/changetime','reqData=' + JSON.stringify(data),{headers: this.headers})
-            
-            .subscribe(
-                function(data){
-                    
-                }
-            );
-        }
         for(let i = 0; i < tr_str; i++) {
             let tr_day = [];
             for(let k = 0; k < 7; k++) {
                 let td_day = {};
-                if (i*7+k-firstday+1 > 0 && i*7+k-firstday+1 <= m_days[mnow]) {
-                    isHoliday = k == 0 || k == 6;
+                let day_val = i*7+k-firstday+1 ;
+                if (day_val > 0 && day_val <= m_days[mnow]) {
+
+                    if(y <= ynow) {
+                        // isHoliday = k == 0 || k == 6 || isFes;
+                    } else {
+                        isHoliday = k == 0 || k == 6;
+                    }
+
                     td_day = {
                         idx: i*7+k,
-                        date_str: i*7+k-firstday+1,
+                        date_str: day_val,
                         isHoliday: isHoliday,
                         isWork: !isHoliday,
                         mark:''
                         }
-                    if (dnow==i*7+k-firstday+1) {
+                    if (dnow==day_val) {
                         today = td_day;
                     }
                 } else {

@@ -19,7 +19,6 @@ export class IndexComponent implements OnInit {
   getList(): void {
     this.data = this.getListService.getList();
     this.selected_day = this.data.today;
-    console.log(this.data);
   }
 
   ngOnInit(): void {

@@ -1,4 +1,3 @@
-<h1>{{title}}</h1>
     <!--<ul class="heroes">
       <li *ngFor="let hero of heroes"
         [class.selected]="hero === selectedHero"
@@ -21,7 +20,7 @@
         <div class="op-calendar-new-left c-clearfix">
             <div class="op-calendar-new-select-box">
                 <div class="select-box">
-                    <select [(ngModel)]="data.year" (change)="changeTime()">
+                    <select [ngModel]="data?.year" (ngModelChange) ="data.year = $event" (change)="changeTime()">
                         <option value ="2015">2015年</option>
                         <option value ="2016">2016年</option>
                         <option value="2017">2017年</option>
@@ -29,7 +28,7 @@
                     </select>
                 </div>
                 <div class="select-box">
-                      <select [(ngModel)]="data.month" (change)="changeTime()">
+                      <select [ngModel]="data?.month"  (ngModelChange) ="data.year = $event" (change)="changeTime()">
                         <option value ="0">1月</option>
                         <option value ="1">2月</option>
                         <option value ="2">3月</option>
@@ -45,7 +44,7 @@
                     </select>
                 </div>
                 <div class="select-box right">
-                    <input class="mark" [(ngModel)]="data.name" placeholder="姓名"/>
+                    <input class="mark" [ngModel]="data?.name" (ngModelChange) ="data.name = $event" placeholder="姓名"/>
                 </div>
             </div>
             <table class="op-calendar-new-table">
@@ -59,7 +58,7 @@
                 <th>五</th>
                 <th class="op-calendar-new-table-weekend">六</th>
                 </tr>
-                <tr *ngFor="let tr_day of data.day" [class.op-calendar-new-table-six]="data.tr_str===6">
+                <tr *ngFor="let tr_day of data?.day" [class.op-calendar-new-table-six]="data.tr_str===6">
                 <td  *ngFor="let td_day of tr_day" (click)="onSelect(td_day)">
                     <app-dayItem [selected] = 'selected_day'  [day] = 'td_day' [daylength] = 'data.tr_str'></app-dayItem>
                     

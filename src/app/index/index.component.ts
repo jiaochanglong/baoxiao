@@ -17,9 +17,11 @@ export class IndexComponent implements OnInit {
   data;
   constructor(private getListService: GetListService) { }
   getList(): void {
-    this.data = this.getListService.getList();
-    this.selected_day = this.data.today;
-    console.log(this.data);
+    debugger
+    this.getListService.getList().then(data=>{
+      this.data = data;
+      this.selected_day = data.today;
+    });
   }
 
   ngOnInit(): void {

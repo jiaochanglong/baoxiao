@@ -18,13 +18,13 @@ private headers = new Headers({'Content-Type': 'application/x-www-form-urlencode
     }
 
     download(data){
-        this.http.post('http://127.0.0.1:7000/download','reqData=' + JSON.stringify(data),{headers: this.headers})
+        this.http.post('http://nononono.cn:7000/download','reqData=' + JSON.stringify(data),{headers: this.headers})
         
         .subscribe(
             function(data){
                 data=data.json();
                 if(data){
-                    location.href='http://127.0.0.1:7000/download?timeName='+data;
+                    location.href='http://nononono.cn:7000/download?timeName='+data;
                 }
             }
         );
@@ -55,15 +55,15 @@ private headers = new Headers({'Content-Type': 'application/x-www-form-urlencode
         let day = [];
         let today = {};
         let isHoliday;
-        function holidayList () {
-            this.http.post('http://127.0.0.1:7000/changetime','reqData=' + JSON.stringify(data),{headers: this.headers})
+        // function holidayList () {
+        //     this.http.post('http://nononono.cn:7000/changetime','reqData=' + JSON.stringify(data),{headers: this.headers})
             
-            .subscribe(
-                function(data){
+        //     .subscribe(
+        //         function(data){
                     
-                }
-            );
-        }
+        //         }
+        //     );
+        // }
         for(let i = 0; i < tr_str; i++) {
             let tr_day = [];
             for(let k = 0; k < 7; k++) {

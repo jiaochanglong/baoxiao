@@ -28,7 +28,7 @@
                     </select>
                 </div>
                 <div class="select-box">
-                      <select [ngModel]="data?.month"  (ngModelChange) ="data.year = $event" (change)="changeTime()">
+                      <select [ngModel]="data?.month"  (ngModelChange) ="data.month = $event" (change)="changeTime()">
                         <option value ="0">1月</option>
                         <option value ="1">2月</option>
                         <option value ="2">3月</option>
@@ -58,9 +58,9 @@
                 <th>五</th>
                 <th class="op-calendar-new-table-weekend">六</th>
                 </tr>
-                <tr *ngFor="let tr_day of data?.day" [class.op-calendar-new-table-six]="data.tr_str===6">
+                <tr *ngFor="let tr_day of data?.day" [class.op-calendar-new-table-six]="data?.tr_str===6">
                 <td  *ngFor="let td_day of tr_day" (click)="onSelect(td_day)">
-                    <app-dayItem [selected] = 'selected_day'  [day] = 'td_day' [daylength] = 'data.tr_str'></app-dayItem>
+                    <app-dayItem [selected] = 'selected_day'  [day] = 'td_day' [daylength] = 'data?.tr_str'></app-dayItem>
                     
                 </td>
                 </tr>

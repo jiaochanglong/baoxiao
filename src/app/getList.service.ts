@@ -40,6 +40,7 @@ export class GetListService {
     // }
 
     changeTime(data) {
+        console.log(data);
         return this.setDay(data.year, data.month);
     }
 
@@ -122,7 +123,7 @@ export class GetListService {
         }
         debugger
 
-         return new Promise((resolve, reject) => { 
+        return new Promise((resolve, reject) => { 
             // this.http.get(this.getUrl(url),
             // // data,
             // {headers: this.headers})
@@ -149,28 +150,26 @@ export class GetListService {
                                     holiday:item.status
                                 })
                             })
-                        })
+                        });
                         holidaylistArray.forEach(i =>{
                             if(i.y==ynow && i.m == mnow) {
                                 day
                             }
-                        })
+                        });
                         resolve({
                             day: day,
                             year: ynow,
                             month: mnow,
                             today: today,
                             tr_str: tr_str
-                        })
+                        });
             //             // _this.setDay();
+            debugger
                     }
-            //     }
-            // );
-        })
-            
-
+                }
+            );
+        });
     }
-    
 }
 
 

@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit {
   data;
   constructor(private getListService: GetListService) { }
   getList(): void {
-    debugger
+    // debugger
     this.getListService.getList().then(data=>{
       this.data = data;
       this.selected_day = data.today;
